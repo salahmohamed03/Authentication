@@ -610,6 +610,10 @@ video {
   justify-content: space-between;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .bg-gradient-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
