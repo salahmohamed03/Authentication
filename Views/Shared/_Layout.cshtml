@@ -6,13 +6,52 @@
     <title>@ViewData["Title"] - Authentication</title>
     <link rel="stylesheet" href="~/css/output.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Authentication.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     @* navbar *@
-    <div class="">
+    <nav class="bg-gradient-to-l from-sky-700 to-indigo-800 p-5 shadow md:flex md:items-center md:justify-between">
+        <div class="flex w-full flex-row justify-between">  
+            <span class="font text-2xl font-extrabold text-white">
+                <img class="inline h-12 w-12" src="https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png"
+                alt="" />
+                Hi
+            </span>
+            <button id="menuButton" class="text-white md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
         
-    </div>
+        @{
+            
+            <ul id="menuList" class="z-[10] absolute left-0 hidden w-full p-5 max-[768px]:bg-gradient-to-l max-[768px]:from-sky-700 max-[768px]:to-indigo-800 md:flex md:items-center md:gap-x-3 md:z-auto md:static md:w-auto">
+                <li>
+                    <a href="/Identity/Account/Login" class="text-2xl text-white">Login</a>
+                </li>
+                <li>
+                    <a href="/Identity/Account/Register" class="text-2xl text-white">Register</a>
+                </li>
+            </ul>
+        }
+    </nav>
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const menuList = document.getElementById("menuList");
+        const closeButton = document.getElementById("closeButton");
+
+        menuButton.addEventListener("click", () => {
+            menuList.classList.toggle("hidden");
+            closeButton.classList.toggle("hidden");
+        });
+
+        closeButton.addEventListener("click", () => {
+            menuList.classList.add("hidden");
+            closeButton.classList.add("hidden");
+        });
+    </script>
     <div class="">
         <main role="main" class="">
             @RenderBody()
